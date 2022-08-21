@@ -13,6 +13,5 @@ namespace AppWareHouse.Models
         public int BarCode { get; set; }
         public DateTime CreationDate { get; set; }
         
-
     }
 }
