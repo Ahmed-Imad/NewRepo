@@ -1,0 +1,36 @@
+﻿@model AppWareHouse.Models.Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<table class="table table-bordered">
+    
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Id)</td>
+        <td>@Html.DisplayFor(m=>m.Id)</td>
+    </tr>
+    
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.ProductName)</td>
+        <td>@Html.DisplayFor(m=>m.ProductName)</td>
+    </tr>
+    
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Price)</td>
+        <td>@Html.DisplayFor(m=>m.Price)</td>
+    </tr>
+    
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Qty)</td>
+        <td>@Html.DisplayFor(m=>m.Qty)</td>
+    </tr>
+    
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.CreationDate)</td>
+        <td>@Html.DisplayFor(m=>m.CreationDate)</td>
+    </tr>
+</table>
+
+<a asp-action="Index"> Back to Index</a>
+

@@ -1,4 +1,5 @@
 ﻿using AppWareHouse.Data;
+using AppWareHouse.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppWareHouse.Controllers
@@ -19,6 +20,21 @@ namespace AppWareHouse.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            product.TotalCost = product.Qty * product.Price;
+            product.InStock = true;
+            db.Products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            var data=db.Products.Find(id);
+            return View(data);
         }
     }
 }
