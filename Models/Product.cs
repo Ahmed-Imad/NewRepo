@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppWarehouse.Models
+namespace AppWareHouse.Models
 {
     public class Product
     {
@@ -12,6 +12,7 @@ namespace AppWarehouse.Models
         public bool InStock { get; set; }
         public int BarCode { get; set; }
         public DateTime CreationDate { get; set; }
+        
 
     }
 }

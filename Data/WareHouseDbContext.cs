@@ -1,5 +1,4 @@
-﻿using AppWarehouse.Models;
-using AppWareHouse.Models;
+﻿using AppWareHouse.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppWareHouse.Data

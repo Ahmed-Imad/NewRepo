@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AppWareHouse.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-action="Create" asp-controller="Products" class="btn btn-outline-success"> 
+    Create New Product
+</a>
+<table class="table table-bordered">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.ProductName)</th>
+        <th>@Html.DisplayNameFor(m => m.Price)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            
+            <td>
+                    <a href="#" class="btn btn-outline-warning">Edit</a>
+                    <a href="#" class="btn btn-outline-success">Details</a>
+                    <a href="#" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
