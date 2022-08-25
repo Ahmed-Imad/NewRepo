@@ -16,11 +16,13 @@ namespace AppWareHouse.Controllers
         {
             return View(db.Products);
         }
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Product product)
         {
@@ -32,6 +34,12 @@ namespace AppWareHouse.Controllers
         }
 
         public IActionResult Details(int id)
+        {
+            var data=db.Products.Find(id);
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
             var data=db.Products.Find(id);
             return View(data);
