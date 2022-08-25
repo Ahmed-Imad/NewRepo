@@ -38,6 +38,7 @@ namespace AppWareHouse.Controllers
             var data=db.Products.Find(id);
             return View(data);
         }
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -50,7 +51,21 @@ namespace AppWareHouse.Controllers
         {
             product.TotalCost = product.Qty * product.Price;
             product.InStock = true;
-            db.Products.Add(product);
+            db.Products.Update(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var data = db.Products.Find(id);
+            return View(data);
+        }
+        [HttpPost]
+        public IActionResult Delete(Product product)
+        {
+            var data = db.Products.Find(product.Id);
+            db.Products.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
