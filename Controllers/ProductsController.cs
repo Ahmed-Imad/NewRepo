@@ -2,6 +2,7 @@
 using AppWareHouse.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace AppWareHouse.Controllers
@@ -16,7 +17,7 @@ namespace AppWareHouse.Controllers
 
         public IActionResult Index()
         {
-            return View(db.Products);
+            return View(db.Products.Include(c => c.Category));
         }
 
         [HttpGet]
@@ -37,7 +38,7 @@ namespace AppWareHouse.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.catName = new SelectList(db.Categories, "CategoryId", "CategoryName");
             return View();
             
         }
@@ -52,12 +53,14 @@ namespace AppWareHouse.Controllers
         public IActionResult Edit(int id)
         {
             var data=db.Products.Find(id);
+            ViewBag.catName = new SelectList(db.Categories, "CategoryId", "CategoryName");
             return View(data);
         }
 
         [HttpPost]
         public IActionResult Edit(Product product)
         {
+
             product.TotalCost = Convert.ToDecimal(product.Qty * product.Price);
             product.InStock = true;
             db.Products.Update(product);

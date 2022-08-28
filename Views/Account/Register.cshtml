@@ -1,0 +1,34 @@
+﻿@model AppWareHouse.Models.User
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Register Page</h1>
+<form method="post" asp-action="Register" asp-controller="Account">
+    <table class="table table-bordered">
+        <tr>
+            <td><label asp-for="UserName"></label></td>
+            <td>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-warning"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-warning"></span>
+            </td>
+        </tr>
+
+       
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Register" class="btn btn-outline-success" />
+            </td>
+        </tr>
+    </table>
+</form>
