@@ -40,11 +40,15 @@
             </td>
     </tr>
 
+        
         <tr>
-            <td><label asp-for="BarCode"></label></td>
+            <td><label asp-for="CategoryId"></label></td>
             <td>
-                <input asp-for="BarCode" class="form-control" />
-                <span asp-validation-for="BarCode" class="text-warning"></span>
+                <select asp-for="CategoryId"
+                        asp-items="ViewBag.catName"
+                        class="form-control">
+                </select>
+                <span asp-validation-for="CategoryId" class="text-warning"></span>
             </td>
         </tr>
     <tr>

@@ -25,6 +25,18 @@
             <td><label asp-for="BarCode"></label></td>
             <td><input asp-for="BarCode" class="form-control" /></td>
         </tr>
+
+        <tr>
+            <td><label asp-for="CategoryId"></label></td>
+            <td>
+                <select asp-for="CategoryId"
+                        asp-items="ViewBag.catName"
+                        class="form-control">
+                </select>
+                
+            </td>
+        </tr> 
+
         <tr>
             <td><label asp-for="CreationDate"></label></td>
             <td><input asp-for="CreationDate" class="form-control" /></td>
