@@ -1,6 +1,8 @@
 ﻿using AppWareHouse.Data;
 using AppWareHouse.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace AppWareHouse.Controllers
 {
@@ -20,17 +22,24 @@ namespace AppWareHouse.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.catName = new SelectList(db.Categories, "CategoryId", "CategoryName");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            product.TotalCost = product.Qty * product.Price;
-            product.InStock = true;
-            db.Products.Add(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                product.TotalCost = Convert.ToDecimal(product.Qty * product.Price);
+                product.InStock = true;
+                db.Products.Add(product);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+            
         }
 
         public IActionResult Details(int id)
@@ -49,7 +58,7 @@ namespace AppWareHouse.Controllers
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            product.TotalCost = product.Qty * product.Price;
+            product.TotalCost = Convert.ToDecimal(product.Qty * product.Price);
             product.InStock = true;
             db.Products.Update(product);
             db.SaveChanges();

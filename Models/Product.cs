@@ -1,17 +1,30 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AppWareHouse.Models
 {
     public class Product
     {
         public int Id { get; set; }
+        [Required (ErrorMessage = "Please Enter Product Name")]
+        [Display (Name = "Product Name")]
         public string ProductName { get; set; }
-        public decimal Price { get; set; }
-        public int Qty { get; set; }
+
+        [Required(ErrorMessage = "Please enter price")]
+        public decimal? Price { get; set; }
+        
+        [Required(ErrorMessage = "Please enter Qty")]
+        public int? Qty { get; set; }
         public decimal TotalCost { get; set; }
         public bool InStock { get; set; }
-        public int BarCode { get; set; }
-        public DateTime CreationDate { get; set; }
         
+        [Required(ErrorMessage = "Please enter barCode")]
+        public int? BarCode { get; set; }
+        [Required(ErrorMessage = "Please enter date")]
+        public DateTime? CreationDate { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+
     }
 }

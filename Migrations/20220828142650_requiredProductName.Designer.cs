@@ -4,14 +4,16 @@ using AppWareHouse.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppWareHouse.Migrations
 {
     [DbContext(typeof(WareHouseDbContext))]
-    partial class WareHouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220828142650_requiredProductName")]
+    partial class requiredProductName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,30 +43,23 @@ namespace AppWareHouse.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BarCode")
-                        .IsRequired()
+                    b.Property<int>("BarCode")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreationDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("InStock")
                         .HasColumnType("bit");
 
-                    b.Property<decimal?>("Price")
-                        .IsRequired()
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Qty")
-                        .IsRequired()
+                    b.Property<int>("Qty")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalCost")
@@ -72,20 +67,7 @@ namespace AppWareHouse.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("AppWareHouse.Models.Product", b =>
-                {
-                    b.HasOne("AppWareHouse.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

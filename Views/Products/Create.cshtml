@@ -10,20 +10,51 @@
 <table class="table table-bordered">
     <tr>
         <td><label asp-for="ProductName"></label></td>
-        <td><input asp-for="ProductName" class="form-control"/></td>
-    </tr><tr>
-        <td><label asp-for="Price"></label></td>
-        <td><input asp-for="Price" class="form-control"/></td>
-    </tr><tr>
-        <td><label asp-for="Qty"></label></td>
-        <td><input asp-for="Qty" class="form-control"/></td>
-    </tr><tr>
-        <td><label asp-for="BarCode"></label></td>
-        <td><input asp-for="BarCode" class="form-control"/></td>
-    </tr><tr>
-        <td><label asp-for="CreationDate"></label></td>
-        <td><input asp-for="CreationDate" class="form-control"/></td>
+        <td>
+            <input asp-for="ProductName" class="form-control"/>
+            <span asp-validation-for="ProductName" class="text-warning"></span>
+        </td>
     </tr>
+    
+    <tr>
+        <td><label asp-for="Price"></label></td>
+            <td>
+                <input asp-for="Price" class="form-control"/>
+                <span asp-validation-for="Price" class="text-warning"></span>
+            </td>
+    </tr>
+    
+    <tr>
+        <td><label asp-for="Qty"></label></td>
+        <td>
+            <input asp-for="Qty" class="form-control"/>
+            <span asp-validation-for="Qty" class="text-warning"></span>
+         </td>
+    </tr>
+    
+    <tr>
+        <td><label asp-for="BarCode"></label></td>
+        <td>
+            <input asp-for="BarCode" class="form-control"/>
+                <span asp-validation-for="BarCode" class="text-warning"></span>
+            </td>
+    </tr>
+
+        <tr>
+            <td><label asp-for="BarCode"></label></td>
+            <td>
+                <input asp-for="BarCode" class="form-control" />
+                <span asp-validation-for="BarCode" class="text-warning"></span>
+            </td>
+        </tr>
+    <tr>
+        <td><label asp-for="CreationDate"></label></td>
+        <td>
+            <input asp-for="CreationDate" class="form-control"/>
+            <span asp-validation-for="CreationDate" class="text-warning"></span>
+        </td>
+    </tr>
+
     <tr>
         <td colspan="2">
             <input type="submit" value="Save" class="btn btn-outline-success"/>
