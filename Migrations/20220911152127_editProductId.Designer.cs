@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppWareHouse.Migrations
 {
     [DbContext(typeof(WareHouseDbContext))]
-    [Migration("20220828205205_tblUser")]
-    partial class tblUser
+    [Migration("20220911152127_editProductId")]
+    partial class editProductId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,7 +81,7 @@ namespace AppWareHouse.Migrations
 
             modelBuilder.Entity("AppWareHouse.Models.User", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -93,7 +93,7 @@ namespace AppWareHouse.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });

@@ -5,7 +5,7 @@ namespace AppWareHouse.Models
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
         [Required (ErrorMessage = "Please Enter Product Name")]
         [Display (Name = "Product Name")]
         public string ProductName { get; set; }

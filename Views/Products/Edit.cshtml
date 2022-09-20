@@ -7,7 +7,7 @@
 
 <h1>Edit Product</h1>
 <form method="post" asp-action="Edit" asp-controller="Products">
-    @Html.HiddenFor(m=>m.Id)
+    @Html.HiddenFor(m=>m.ProductId)
     <table class="table table-bordered">
         <tr>
             <td><label asp-for="ProductName"></label></td>

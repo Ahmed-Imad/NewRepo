@@ -76,7 +76,7 @@ namespace AppWareHouse.Controllers
         [HttpPost]
         public IActionResult Delete(Product product)
         {
-            var data = db.Products.Find(product.Id);
+            var data = db.Products.Find(product.ProductId);
             db.Products.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");

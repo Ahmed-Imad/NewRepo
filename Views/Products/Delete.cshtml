@@ -6,7 +6,7 @@
 <h1>Are you sure to delete @Model.ProductName ? </h1>
 
 <form asp-action="Delete" method="post">
-    @Html.HiddenFor(m=>m.Id)
+    @Html.HiddenFor(m=>m.ProductId)
     <input type="submit"
            value="Delete"
            class="btn btn-outline-danger"/>
